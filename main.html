@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перетяжка мебели | Ремонт мебели</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f0ea;
+            color: #2c241e;
+            padding-top: 76px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ШАПКА ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #f5f0ea;
+            border-bottom: 1px solid #ddd2c6;
+            padding: 0 32px;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            font-size: 15px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            color: #2c241e;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+            flex-shrink: 0;
+        }
+
+        .nav-logo .logo-icon {
+            font-size: 18px;
+            display: inline-block;
+            border: 2px solid #2c241e;
+            border-radius: 8px;
+            padding: 2px 8px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            font-weight: 300;
+            color: #7a6b5d;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c241e;
+            font-weight: 600;
+            font-size: 15px;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-bottom-color: #b8a48c;
+            color: #1a130e;
+        }
+
+        .nav-links .contact-link {
+            background: #2c241e;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 40px;
+            border-bottom: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-links .contact-link:hover {
+            background: #4a3d34;
+            border-bottom: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 26px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #2c241e;
+            padding: 8px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 16px;
+                height: 64px;
+                flex-wrap: nowrap;
+            }
+            body {
+                padding-top: 64px;
+            }
+            .nav-logo {
+                font-size: 16px;
+            }
+            .nav-logo .logo-icon {
+                font-size: 14px;
+                padding: 1px 6px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 16px 24px;
+                gap: 14px;
+                background: #f5f0ea;
+                border-bottom: 1px solid #ddd2c6;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+                z-index: 999;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 16px;
+                padding: 6px 0;
+                white-space: normal;
+            }
+            .nav-links .contact-link {
+                background: #2c241e;
+                color: #fff;
+                padding: 10px 32px;
+                border-radius: 40px;
+                border-bottom: none;
+            }
+            .nav-links .contact-link:hover {
+                background: #4a3d34;
+                border-bottom: none;
+            }
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo {
+                font-size: 14px;
+                gap: 6px;
+            }
+            .nav-logo .logo-icon {
+                font-size: 12px;
+                padding: 1px 5px;
+            }
+            .navbar {
+                padding: 0 12px;
+                height: 56px;
+            }
+            body {
+                padding-top: 56px;
+            }
+            .nav-links {
+                top: 56px;
+                padding: 16px 12px 20px;
+                gap: 12px;
+            }
+            .nav-links a {
+                font-size: 15px;
+            }
+            .nav-links .contact-link {
+                padding: 8px 24px;
+                font-size: 14px;
+            }
+        }
+
+        /* ===== ГЕРОЙ С ОВЕРЛЕЕМ ===== */
+        .hero-wrapper {
+            position: relative;
+            border-bottom: 1px solid #e2d7cc;
+            background: #f5f0ea;
+        }
+
+        .hero {
+            position: relative;
+            padding: 40px 0 60px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(90deg, #f5f0ea 35%, rgba(245, 240, 234, 0) 100%), url('./images/diwan.jpg') right center/contain no-repeat;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            color: #2c241e;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 40px;
+        }
+
+        .hero-inner {
+            max-width: 600px;
+        }
+
+        .hero .hero-badge {
+            display: inline-block;
+            background: #ece5dd;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2c241e;
+            letter-spacing: 0.2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 16px;
+        }
+
+        .hero .subhead {
+            font-size: 20px;
+            font-weight: 400;
+            color: #4d3f33;
+            margin-bottom: 24px;
+        }
+
+        .hero-features {
+            list-style: none;
+            margin-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hero-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .hero-features li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: #b8a48c;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2c241e;
+            color: #fff;
+            padding: 12px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #4a3d34;
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2c241e;
+            border: 1px solid #d6cbbc;
+        }
+
+        .btn-outline:hover {
+            background: #ece5dd;
+            border-color: #b8a48c;
+        }
+
+        .furniture-label {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            z-index: 10;
+            background: rgba(245, 240, 234, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 18px 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c241e;
+            letter-spacing: -0.3px;
+            pointer-events: none;
+            max-width: 320px;
+            text-align: right;
+        }
+
+        .furniture-label small {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: justify;
+            color: #6c5a43;
+            margin-top: 2px;
+            letter-spacing: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 52px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                background: #f5f0ea;
+                padding: 30px 0 50px;
+                min-height: auto;
+            }
+            .hero-content {
+                padding-left: 24px;
+            }
+            .hero h1 {
+                font-size: 44px;
+            }
+            .hero .subhead {
+                font-size: 18px;
+            }
+            .furniture-label {
+                bottom: 24px;
+                right: 24px;
+                padding: 14px 20px;
+                font-size: 17px;
+                max-width: 260px;
+            }
+            .furniture-label small {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 20px 0 40px;
+            }
+            .hero-content {
+                padding-left: 0;
+            }
+            .hero-inner {
+                max-width: 100%;
+            }
+            .hero h1 {
+                font-size: 36px;
+                letter-spacing: -1px;
+            }
+            .hero .subhead {
+                font-size: 17px;
+            }
+            .hero .hero-badge {
+                font-size: 12px;
+                padding: 6px 16px;
+                margin-bottom: 16px;
+            }
+            .hero-features li {
+                font-size: 14px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+            }
+            .hero-buttons .btn {
+                text-align: center;
+                width: 100%;
+            }
+            .furniture-label {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 20px;
+                padding: 16px 20px;
+                font-size: 16px;
+                max-width: 100%;
+                text-align: center;
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .furniture-label small {
+                text-align: center;
+                font-size: 13px;
+            }
+            .hero-wrapper .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero .subhead {
+                font-size: 15px;
+            }
+            .hero .hero-badge {
+                font-size: 11px;
+                padding: 4px 14px;
+            }
+            .hero-features li {
+                font-size: 13px;
+                gap: 10px;
+            }
+            .hero-features li::before {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+            }
+            .btn {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+            .furniture-label {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+            .furniture-label small {
+                font-size: 12px;
+            }
+        }
+
+        /* ===== ОБЩИЕ ===== */
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-link {
+            font-size: 14px;
+            color: #3d322a;
+            text-decoration: none;
+            border-bottom: 1px solid #b8a48c;
+            padding-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        .scroll-margin {
+            scroll-margin-top: 90px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 22px;
+            }
+            .section-link {
+                font-size: 13px;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 19px;
+                gap: 8px;
+            }
+            .section-link {
+                font-size: 12px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        /* ===== ДО / ПОСЛЕ ===== */
+        .ba-section {
+            padding: 48px 0 32px;
+            background: #f5f0ea;
+        }
+
+        .ba-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .ba-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #d6cbbc;
+            background: #d9cec2;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .ba-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .ba-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .ba-section {
+                padding: 32px 0 24px;
+            }
+            .ba-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ba-section {
+                padding: 24px 0 16px;
+            }
+            .ba-grid {
+                gap: 12px;
+            }
+            .ba-label {
+                font-size: 11px;
+                padding: 3px 10px;
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        /* ===== ТКАНИ — ОСНОВНОЙ БЛОК ===== */
+        .fabric-section {
+            padding: 32px 0 16px;
+        }
+
+        .fabric-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 16px;
+        }
+
+        .fabric-text {
+            flex: 0.8;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            text-align: left;
+            order: 1;
+        }
+
+        .fabric-text p {
+            color: #4d3f33;
+            line-height: 1.6;
+        }
+
+        .fabric-image {
+            flex: 1.2;
+            overflow: hidden;
+            order: 2;
+        }
+
+        .fabric-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .fabric-content {
+                gap: 30px;
+            }
+            .fabric-text {
+                flex: 1;
+            }
+            .fabric-image {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .fabric-section {
+                padding: 24px 0 12px;
+            }
+            .fabric-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .fabric-text {
+                order: 1;
+                width: 100%;
+                align-items: flex-start;
+            }
+            .fabric-text p {
+                font-size: 15px;
+            }
+            .fabric-image {
+                order: 2;
+                width: 100%;
+            }
+            .fabric-image img {
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .fabric-section {
+                padding: 16px 0 8px;
+            }
+            .fabric-content {
+                gap: 14px;
+            }
+            .fabric-text p {
+                font-size: 14px;
+            }
+            .fabric-text .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО С ТКАНЯМИ ===== */
+        .fabric-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .fabric-overlay.open {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fabric-modal {
+            background: #f5f0ea;
+            border-radius: 28px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 28px 32px 36px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid #e2d7cc;
+        }
+
+        .fabric-modal::-webkit-scrollbar {
+            width: 6px;
+        }
+        .fabric-modal::-webkit-scrollbar-track {
+            background: #e2d7cc;
+            border-radius: 10px;
+        }
+        .fabric-modal::-webkit-scrollbar-thumb {
+            background: #b8a48c;
+            border-radius: 10px;
+        }
+
+        .fabric-modal .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #2c241e;
+            opacity: 0.5;
+            transition: 0.2s;
+            line-height: 1;
+        }
+
+        .fabric-modal .modal-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        .fabric-modal h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .fabric-modal .sub {
+            color: #7a6b5d;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .fabric-modal-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .fabric-modal-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2d7cc;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .fabric-modal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border-color: #b8a48c;
+        }
+
+        .fabric-modal-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .fabric-modal-card .info {
+            padding: 10px 14px 14px;
+        }
+
+        .fabric-modal-card .info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .fabric-modal-card .info p {
+            font-size: 12px;
+            color: #7a6b5d;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 992px) {
+            .fabric-modal-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .fabric-modal {
+                padding: 24px 24px 30px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .fabric-modal-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .fabric-modal-card img {
+                height: 100px;
+            }
+            .fabric-modal {
+                padding: 20px 18px 24px;
+                border-radius: 20px;
+                max-height: 85vh;
+            }
+            .fabric-modal h2 {
+                font-size: 20px;
+            }
+            .fabric-modal .sub {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .fabric-overlay {
+                padding: 16px 10px;
+            }
+            .fabric-modal {
+                padding: 16px 12px 20px;
+                border-radius: 16px;
+            }
+            .fabric-modal-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .fabric-modal-card img {
+                height: 80px;
+            }
+            .fabric-modal-card .info {
+                padding: 6px 10px 10px;
+            }
+            .fabric-modal-card .info h4 {
+                font-size: 12px;
+            }
+            .fabric-modal-card .info p {
+                font-size: 10px;
+            }
+            .fabric-modal h2 {
+                font-size: 17px;
+            }
+            .fabric-modal .sub {
+                font-size: 12px;
+                margin-bottom: 14px;
+            }
+            .fabric-modal .modal-close {
+                top: 10px;
+                right: 14px;
+                font-size: 22px;
+            }
+        }
+
+        /* ===== ПРОЦЕСС ===== */
+        .steps-section {
+            padding: 48px 0 40px;
+            background: #f5f0ea;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: #b8a48c;
+            z-index: 0;
+        }
+
+        .step-card {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: #f5f0ea;
+            border: 1px solid #b8a48c;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #2c241e;
+        }
+
+        .step-card h4 {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: #5f5246;
+        }
+
+        @media (max-width: 992px) {
+            .steps-grid {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .steps-section {
+                padding: 32px 0 28px;
+            }
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .steps-grid::before {
+                display: none;
+            }
+            .step-card {
+                padding: 0 8px;
+            }
+            .step-card h4 {
+                font-size: 15px;
+            }
+            .step-card p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .steps-section {
+                padding: 24px 0 20px;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+            .step-num {
+                width: 40px;
+                height: 40px;
+                font-size: 15px;
+                margin-bottom: 8px;
+            }
+            .step-card h4 {
+                font-size: 13px;
+            }
+            .step-card p {
+                font-size: 12px;
+            }
+        }
+
+        /* ===== ГАЛЕРЕЯ ===== */
+        .gallery-section {
+            padding: 32px 0 16px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-grid .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #d6cbbc;
+            background: #d9cec2;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery-grid .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 24px 0 12px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-section {
+                padding: 16px 0 8px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .gallery-grid .gallery-item {
+                border-radius: 10px;
+            }
+        }
+
+        /* ===== НИЖНИЙ БЛОК ===== */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 24px;
+            padding: 28px 32px;
+            margin: 24px 0 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .bottom-section .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0;
+        }
+
+        .bottom-info {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            position: relative;
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #ece5dd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .speech-bubble {
+            background: #fff;
+            padding: 16px 20px;
+            border-radius: 16px 16px 16px 4px;
+            border: 1px solid #d6cbbc;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 24px;
+            border: 8px solid transparent;
+            border-right-color: #fff;
+            border-left: 0;
+            z-index: 1;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 24px;
+            border: 8px solid transparent;
+            border-right-color: #d6cbbc;
+            border-left: 0;
+            z-index: 0;
+        }
+
+        .speech-bubble h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #1f1813;
+        }
+
+        .speech-bubble p {
+            font-size: 14px;
+            color: #5f5246;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .bottom-contacts {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 1px solid #e2d7cc;
+            border-radius: 60px;
+            padding: 10px 20px 10px 16px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: #ece5dd;
+            border-radius: 50%;
+            color: #2c241e;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .contact-button:hover {
+            background: #b8a48c;
+            color: #fff;
+        }
+
+        .contact-button img {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .bottom-label {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #2c241e;
+            font-weight: 500;
+            padding-left: 4px;
+            border-left: 1px solid #ddd2c6;
+            padding-left: 16px;
+        }
+
+        .bottom-label span {
+            display: block;
+            font-weight: 400;
+            font-size: 13px;
+            color: #7a6b5d;
+        }
+
+        @media (max-width: 992px) {
+            .bottom-section .container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .bottom-info {
+                width: 100%;
+            }
+            .bottom-contacts {
+                width: 100%;
+                justify-content: center;
+                border-radius: 40px;
+                padding: 12px 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bottom-section {
+                padding: 20px 16px;
+                margin: 16px 0 0;
+                border-radius: 16px;
+            }
+            .bottom-section .container {
+                gap: 16px;
+            }
+            .bottom-info {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 12px;
+            }
+            .speech-bubble {
+                width: 100%;
+                text-align: left;
+                padding: 14px 16px;
+                border-radius: 12px 12px 12px 4px;
+            }
+            .speech-bubble::before {
+                left: 20px;
+                top: -16px;
+                border: 8px solid transparent;
+                border-bottom-color: #fff;
+                border-top: 0;
+                border-right-color: transparent;
+            }
+            .speech-bubble::after {
+                left: 18px;
+                top: -18px;
+                border: 8px solid transparent;
+                border-bottom-color: #d6cbbc;
+                border-top: 0;
+                border-right-color: transparent;
+            }
+            .speech-bubble h3 {
+                font-size: 15px;
+            }
+            .speech-bubble p {
+                font-size: 13px;
+            }
+            .bottom-contacts {
+                margin-top: 0;
+                width: 100%;
+                border-radius: 40px;
+                padding: 10px 14px;
+                gap: 10px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .contact-button {
+                width: 44px;
+                height: 44px;
+            }
+            .contact-button img {
+                width: 20px;
+                height: 20px;
+            }
+            .bottom-label {
+                border-left: none;
+                padding-left: 0;
+                text-align: center;
+                font-size: 13px;
+                width: 100%;
+                border-top: 1px solid #e2d7cc;
+                padding-top: 10px;
+                margin-top: 4px;
+            }
+            .bottom-label span {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bottom-section {
+                padding: 16px 12px;
+                margin: 12px 0 0;
+                border-radius: 12px;
+            }
+            .bottom-section .container {
+                gap: 12px;
+            }
+            .avatar {
+                width: 52px;
+                height: 52px;
+            }
+            .speech-bubble {
+                padding: 12px 14px;
+            }
+            .speech-bubble h3 {
+                font-size: 14px;
+            }
+            .speech-bubble p {
+                font-size: 12px;
+            }
+            .contact-button {
+                width: 38px;
+                height: 38px;
+            }
+            .contact-button img {
+                width: 18px;
+                height: 18px;
+            }
+            .bottom-contacts {
+                padding: 8px 12px;
+                gap: 8px;
+                border-radius: 30px;
+            }
+            .bottom-label {
+                font-size: 12px;
+                padding-top: 8px;
+            }
+            .bottom-label span {
+                font-size: 11px;
+            }
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer {
+            border-top: 1px solid #e2d7cc;
+            padding: 28px 0 24px;
+            text-align: center;
+            color: #5f5246;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin-bottom: 2px;
+        }
+
+        .footer .copy {
+            font-weight: 500;
+            color: #2c241e;
+        }
+
+        .footer .tagline {
+            font-size: 13px;
+            color: #7a6b5d;
+            margin-top: 2px;
+        }
+
+        .footer .location-dot {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 20px 0 16px;
+                font-size: 13px;
+            }
+            .footer .copy {
+                font-size: 14px;
+            }
+            .footer .tagline {
+                font-size: 12px;
+            }
+            .footer h3 {
+                font-size: 16px;
+            }
+        }
+
+        /* ===== ЛАЙТБОКС ===== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998;
+            padding: 2rem;
+            cursor: pointer;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: 0.2s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-overlay {
+                padding: 1rem;
+            }
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+                font-size: 32px;
+            }
+            .lightbox-overlay img {
+                max-width: 95vw;
+                max-height: 80vh;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lightbox-overlay {
+                padding: 0.5rem;
+            }
+            .lightbox-close {
+                top: 12px;
+                right: 16px;
+                font-size: 28px;
+            }
+            .lightbox-overlay img {
+                border-radius: 8px;
+                max-height: 85vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <span class="logo-icon">Remebel.by</span>
+            Перетяжка <span>мебели</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Меню">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services" class="active">Услуги</a></li>
+            <li><a href="#fabric">Ткани</a></li>
+            <li><a href="#gallery">Проекты</a></li>
+            <li><a href="#about">Процесс работы</a></li>
+            <li><a href="#consult" class="contact-link">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="hero-wrapper">
+
+            <div class="furniture-label">
+                <small>Перетягиваем любую мебель:
+                диваны, кресла, стулья, уголки, офисную мебель и другое.</small>
+            </div>
+
+            <header class="hero" id="hero">
+                <div class="container hero-content">
+                    <div class="hero-inner">
+                        <span class="hero-badge">Качественно. Эстетично. Надолго.</span>
+                        <h1>Перетяжка<br>мебели</h1>
+                        <p class="subhead">Обновим вашу мебель так, что она будет выглядеть лучше новой.</p>
+                        <ul class="hero-features">
+                            <li>Большой выбор тканей</li>
+                            <li>Грамотный подбор материалов</li>
+                            <li>Чистая и аккуратная работа</li>
+                            <li>Индивидуальный подход</li>
+                        </ul>
+                        <div class="hero-buttons">
+                            <a href="#consult" class="btn">Получить консультацию</a>
+                            <a href="#" class="btn btn-outline">Честные сроки и прозрачные цены</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <section class="ba-section scroll-margin" id="services">
+            <div class="container">
+                <h2 class="section-title">
+                    Преображаем мебель
+                    <a href="#gallery" class="section-link">Смотрите примеры работ →</a>
+                </h2>
+                <div class="ba-grid">
+                    <div class="ba-card" onclick="openLightbox(this.querySelector('img').src)">
+                        <div class="ba-label">До</div>
+                        <img src="./images/IMG_1735.JPG" alt="мебель до" onerror="this.src='./images/OurWork02.PNG'" />
+                    </div>
+                    <div class="ba-card" onclick="openLightbox(this.querySelector('img').src)">
+                        <div class="ba-label">После</div>
+                        <img src="./images/IMG_1737.JPG" alt="мебель после" onerror="this.src='./images/OurWork03.PNG'" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fabric-section scroll-margin" id="fabric">
+            <div class="container">
+                <h2 class="section-title">Подберём идеальную ткань под ваш интерьер</h2>
+                <div class="fabric-content">
+                    <div class="fabric-text">
+                        <p style="color: #4d3f33; line-height: 1.6;">Велюр, микровелюр, рогожка и другие материалы. Поможем выбрать лучший вариант именно для вашего интерьера.</p>
+                        <button class="btn btn-outline" id="fabricOpenBtn">Посмотреть ткани</button>
+                    </div>
+                    <div class="fabric-image">
+                        <img src="./images/beem-preview.png" alt="Образцы тканей" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="steps-section scroll-margin" id="about">
+            <div class="container">
+                <h2 class="section-title">Как мы работаем</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h4>Консультация</h4>
+                        <p>Обсуждаем задачу, материалы и сроки</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h4>Подбор ткани</h4>
+                        <p>Помогаем выбрать лучший вариант</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h4>Перетяжка</h4>
+                        <p>Аккуратная работа опытных мастеров</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">4</div>
+                        <h4>Результат</h4>
+                        <p>Вы получаете обновлённую мебель, как новую</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section scroll-margin" id="gallery">
+            <div class="container">
+                <h2 class="section-title">
+                    Примеры работ
+                    <a href="https://www.instagram.com/remebel.by" target="_blank" class="section-link">Больше работ в профиле →</a>
+                </h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/OurWork02.PNG" alt="работа 1" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/OurWork03.PNG" alt="работа 2" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/OurWork04.PNG" alt="работа 3" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/OurWork05.PNG" alt="работа 4" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/OurWork06.PNG" alt="работа 5" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/OurWork07.PNG" alt="работа 6" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="consult" class="bottom-section scroll-margin">
+            <div class="container">
+                <div class="bottom-info">
+                    <div class="avatar">
+                        <img src="./images/employee-preview.png" alt="сотрудник" />
+                    </div>
+                    <div class="speech-bubble">
+                        <h3>Забота о мебели и вашем бюджете</h3>
+                        <p>Гарантирую качественный результат и внимательное отношение к деталям.</p>
+                    </div>
+                </div>
+                <div class="bottom-contacts">
+                    <a href="https://www.instagram.com/remebel.by" target="_blank" class="contact-button" title="Instagram"><img class="contact-logo" src="./images/insta-logo.png" alt="insta" /></a>
+                    <a href="tel:+375295105403" class="contact-button" title="телефон"><img class="contact-logo" src="./images/phone-logo.png" alt="whatsapp" /></a>
+                    <a href="#" target="_blank" class="contact-button" title="сайт"><img class="contact-logo" src="./images/site-logo.png" alt="telegram" /></a>
+                    <div class="bottom-label">
+                        Напишите нам!
+                        <span>Ответ на все вопросы и расчёт стоимости</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copy">© Перетяжка мебели</p>
+            <h3><img src="./images/marker.png" class="location-dot"/> Минск и область</h3>
+            <p class="tagline">Индивидуальный подход к каждому заказу</p>
+        </div>
+    </footer>
+
+    <div class="fabric-overlay" id="fabricOverlay">
+        <div class="fabric-modal">
+            <button class="modal-close" id="fabricCloseBtn">✕</button>
+            <h2>Выберите ткань</h2>
+            <p class="sub">Нажмите на карточку, чтобы узнать подробнее</p>
+            <div class="fabric-modal-grid">
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/velur.jpg" alt="Велюр" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EВелор%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Велюр</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/microvelur.png" alt="Микровелюр" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EМикровелор%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Микровелюр</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/zamha.jpg" alt="Искусственная замша" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EРогожка%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Искусственная замша</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/rogozhka.png" alt="Рогожка" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EАнтикот%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Рогожка</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/isskkoja.jpg" alt="Искусственная кожа" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EЖаккард%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Искусственная кожа</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/microfolk.png" alt="Микрофлок" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EФлок%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Микрофлок</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/shenill.png" alt="Шенилл" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EШенилл%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Шенилл</h4>
+                    </div>
+                </div>
+                <div class="fabric-modal-card">
+                    <img src="./images/fabric/velur.jpg" alt="Велюр с шинильной нитью" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22120%22%3E%3Crect width=%22300%22 height=%22120%22 fill=%22%23d9cec2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%237a6b5d%22 font-family=%22Inter%22 font-size=%2220%22%3EВелюр%3C/text%3E%3C/svg%3E'" />
+                    <div class="info">
+                        <h4>Велюр с шинильной нитью</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox();">✕</button>
+        <img id="lightboxImg" src="" alt="увеличенное изображение" onclick="event.stopPropagation();" />
+    </div>
+
+    <script>
+        (function() {
+            // === Мобильное меню ===
+            const toggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (toggle && navLinks) {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('open');
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => navLinks.classList.remove('open'));
+                });
+            }
+
+            // === Активная ссылка ===
+            const navAnchors = document.querySelectorAll('.nav-links a');
+
+            function setActiveLink(id) {
+                navAnchors.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+                });
+            }
+
+            navAnchors.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setActiveLink(targetId);
+                    }
+                });
+            });
+
+            // === Кнопки ===
+            document.getElementById('priceBtn')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Сроки и цены обсуждаются индивидуально. Оставьте заявку, и мы свяжемся с вами!');
+            });
+
+            // === МОДАЛЬНОЕ ОКНО С ТКАНЯМИ ===
+            const overlay = document.getElementById('fabricOverlay');
+            const openBtn = document.getElementById('fabricOpenBtn');
+            const closeBtn = document.getElementById('fabricCloseBtn');
+
+            if (openBtn && overlay) {
+                openBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    overlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (closeBtn && overlay) {
+                closeBtn.addEventListener('click', function() {
+                    overlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) {
+                        overlay.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+                        overlay.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+        })();
+
+        // === ЛАЙТБОКС ===
+        function openLightbox(src) {
+            const overlay = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            if (src && overlay && img) {
+                img.src = src;
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            const overlay = document.getElementById('lightbox');
+            if (overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>

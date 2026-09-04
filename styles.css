@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #dcdcd3;
+}
+
+/* HEADER */
+header {
+  background-color: #e8e8d8;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2e3a1f;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #6b7a4b;
+  font-weight: 500;
+}
+
+nav a.active {
+  color: #000;
+}
+
+/* SLIDER */
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  margin-top: 40px;
+}
+
+.slide {
+  width: 22%;
+  height: 70%;
+  background: url('background.jpg') center/cover no-repeat;
+  border-radius: 12px;
+  margin: 0 15px;
+  opacity: 0.4;
+  transition: 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  color: white;
+}
+
+.slide.active {
+  width: 35%;
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.slide h2 {
+  margin-top: 40px;
+  font-size: 22px;
+}
+
+.slide p {
+  background-color: rgba(255,255,255,0.9);
+  color: #000;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #6b7a4b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
