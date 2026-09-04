@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Перетяжка мебели | Ремонт мебели</title>
+    <link rel="icon" type="image/jpg" href="./images/logo-web.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
@@ -580,12 +581,34 @@
             position: absolute;
             top: 16px;
             left: 16px;
-            background: #fff;
+            background: #f5f0ea;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        /* Подсказка "Нажмите для увеличения" — всегда видима */
+        .zoom-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 3;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
@@ -595,6 +618,11 @@
             .ba-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
+            }
+            .zoom-hint {
+                font-size: 12px;
+                padding: 5px 14px;
+                bottom: 12px;
             }
         }
 
@@ -610,6 +638,12 @@
                 padding: 3px 10px;
                 top: 10px;
                 left: 10px;
+            }
+            .zoom-hint {
+                font-size: 10px;
+                padding: 4px 12px;
+                bottom: 8px;
+                white-space: nowrap;
             }
         }
 
@@ -1024,7 +1058,8 @@
             gap: 16px;
         }
 
-        .gallery-grid .gallery-item {
+        .gallery-item {
+            position: relative;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #d6cbbc;
@@ -1034,16 +1069,22 @@
             transition: 0.3s;
         }
 
-        .gallery-grid .gallery-item:hover {
+        .gallery-item:hover {
             transform: scale(1.02);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
-        .gallery-grid .gallery-item img {
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        /* Подсказка для галереи — всегда видима */
+        .gallery-item .zoom-hint {
+            bottom: 14px;
+            opacity: 1;
         }
 
         @media (max-width: 992px) {
@@ -1061,6 +1102,11 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
+            .gallery-item .zoom-hint {
+                font-size: 12px;
+                padding: 5px 14px;
+                bottom: 12px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1071,8 +1117,13 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
             }
-            .gallery-grid .gallery-item {
+            .gallery-item {
                 border-radius: 10px;
+            }
+            .gallery-item .zoom-hint {
+                font-size: 10px;
+                padding: 4px 12px;
+                bottom: 8px;
             }
         }
 
@@ -1502,8 +1553,8 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#services" class="active">Услуги</a></li>
             <li><a href="#fabric">Ткани</a></li>
-            <li><a href="#gallery">Проекты</a></li>
             <li><a href="#about">Процесс работы</a></li>
+            <li><a href="#gallery">Проекты</a></li>
             <li><a href="#consult" class="contact-link">Контакты</a></li>
         </ul>
     </nav>
@@ -1547,10 +1598,22 @@
                     <div class="ba-card" onclick="openLightbox(this.querySelector('img').src)">
                         <div class="ba-label">До</div>
                         <img src="./images/IMG_1735.JPG" alt="мебель до" onerror="this.src='./images/OurWork02.PNG'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                     <div class="ba-card" onclick="openLightbox(this.querySelector('img').src)">
                         <div class="ba-label">После</div>
                         <img src="./images/IMG_1737.JPG" alt="мебель после" onerror="this.src='./images/OurWork03.PNG'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
+                    </div>
+                    <div class="ba-card" onclick="openLightbox(this.querySelector('img').src)">
+                        <div class="ba-label">До</div>
+                        <img src="./images/IMG_2830.JPG" alt="мебель до" onerror="this.src='./images/IMG_2830.JPG'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
+                    </div>
+                    <div class="ba-card" onclick="openLightbox(this.querySelector('img').src)">
+                        <div class="ba-label">После</div>
+                        <img src="./images/IMG_2831.JPG" alt="мебель после" onerror="this.src='./images/IMG_2831.JPG'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                 </div>
             </div>
@@ -1578,12 +1641,12 @@
                     <div class="step-card">
                         <div class="step-num">1</div>
                         <h4>Консультация</h4>
-                        <p>Обсуждаем задачу, материалы и сроки</p>
+                        <p>Обсуждаем задачу</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">2</div>
-                        <h4>Подбор ткани</h4>
-                        <p>Помогаем выбрать лучший вариант</p>
+                        <h4>Выезд специалиста</h4>
+                        <p>Помогаем с выбором ткани</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">3</div>
@@ -1606,23 +1669,37 @@
                     <a href="https://www.instagram.com/remebel.by" target="_blank" class="section-link">Больше работ в профиле →</a>
                 </h2>
                 <div class="gallery-grid">
+                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/220022.jpg" alt="работа -1" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="./images/110011.jpg" alt="работа 0" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
+                    </div>
                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                         <img src="./images/OurWork02.PNG" alt="работа 1" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                         <img src="./images/OurWork03.PNG" alt="работа 2" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                         <img src="./images/OurWork04.PNG" alt="работа 3" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                         <img src="./images/OurWork05.PNG" alt="работа 4" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                         <img src="./images/OurWork06.PNG" alt="работа 5" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
                         <img src="./images/OurWork07.PNG" alt="работа 6" onerror="this.outerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d9cec2;font-size:2rem;\'>📷</div>'" />
+                        <span class="zoom-hint">Нажмите для увеличения</span>
                     </div>
                 </div>
             </div>
@@ -1632,7 +1709,7 @@
             <div class="container">
                 <div class="bottom-info">
                     <div class="avatar">
-                        <img src="./images/employee-preview.png" alt="сотрудник" />
+                        <img src="./images/logo-web.jpg" alt="сотрудник" />
                     </div>
                     <div class="speech-bubble">
                         <h3>Забота о мебели и вашем бюджете</h3>
